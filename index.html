@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+    <link rel="stylesheet" href="etch-a-sketch.css">
+
+</head>
+<body>
+    
+    <button id="CreateNew">Create New Grid </button>
+    <div class= "container"> </div>
+
+    
+
+
+        
+    <script>
+
+        // create with javascript a webpage with 16 * 16 grid of square divs
+        const container = document.querySelector('.container');
+
+        function createNewGrid(size){
+
+            container.innerHTML = "";
+
+        const squareSize = 640/size;
+
+            for (let i=0; i < size * size; i++) {
+                const square = document.createElement('div');
+                square.classList.add('square');
+                
+                square.style.width = `${squareSize}px`;
+                square.style.height = `${squareSize}px`;
+                square.addEventListener("mouseenter", () =>{
+                    // adding rgb
+                    const r =  Math.floor(Math.random () * 256);
+                    const g =  Math.floor(Math.random () * 256);
+                    const b = Math.floor(Math.random () * 256);
+
+                    square.style.background = `rgb(${r}, ${g}, ${b})`;
+                })
+                container.appendChild(square);
+            }
+        }
+
+        createNewGrid(16);
+
+
+         const button = document.querySelector("#CreateNew");
+            button.addEventListener("click", () => {
+
+            let size = prompt("enter the preferred number of squares per side")
+            
+            size = Number(size);
+
+            if (size >0 &&  size <= 100) {
+                createNewGrid(size);
+
+            }else{
+                alert("please enter a number between 1 and 100");
+            }
+
+            })
+        // put the grid squares inside a container div
+        //use flexbox to make the divs appear as a grid
+        // set hover effect grid changes color when mouse passes leaving pixelaated trail
+
+        // add a button with a prompt to ask the user how many squares per side they want in the grid
+        // set max = 100
+            
+        // when the user enters a number the existing grid is removed 
+        //  a new grid is created with the same total space as before
+
+    </script>
+
+</body>
+</html>

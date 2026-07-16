@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 640px;
+    height: 640px;
+    border: 1px solid blue;
+    margin: 40px
+    ;
+
+}
+.square {
+    border: 1px solid blue;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+
+
+}
+#CreateNew{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin: 40px;
+}
